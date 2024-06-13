@@ -1,8 +1,13 @@
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      
-    </main>
+    <div>
+      <div>
+        <h1>Enter Your Name</h1>
+      </div>
+      <form><input type="text" placeholder="Type your name ..."/></form>
+      <button type="submit">Predict Data</button>
+    </div>
+
   );
 }
