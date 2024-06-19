@@ -19,11 +19,18 @@ interface Params{
 
 export default async function Page({params}:Params) {
   const ageData = getPredictedAge(params.name)
-  const genderData = getPredictedAge(params.name)
-  const countryData = getPredictedAge(params.name)
+  const genderData = getPredictedGender(params.name)
+  const countryData = getPredictedCountry(params.name)
+  const [age, gender,country] = await Promise.all([ageData,countryData,genderData]);
     return (
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">Name
-       {params.name} 
-      </main>
+     <div>
+      <div>
+        <div>Personal info</div>
+        <div>Age:{age?.age}</div>
+        <div>Gender:{gender?.gender}</div>
+        <div>Country:{country?.country[0]?.country_id}</div>
+      </div>
+
+      </div>
     );
   }
