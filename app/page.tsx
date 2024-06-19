@@ -1,14 +1,17 @@
 "use client";
 
-import {useState} from "react"
+import {useState, FormEvent} from "react"
 export default function Home() {
   const [inputVal, setInputVal] = useState("")
+  const handleSubmit = (event: FormEvent) =>{
+    
+  }
   return (
     <div>
       <div>
         <h1>Enter Your Name</h1>
       </div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Type your name ..." 
         value={inputVal}
         onChange={(e) =>setInputVal(e.target.value)}/>
