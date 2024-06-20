@@ -1,15 +1,17 @@
+
+
 const getPredictedAge = async (name: string)=>{
-  const res = await fetch(`https://agify.io/?name=${name}`);
+  const res = await fetch(`https://api.agify.io/?name=${name}`);
   return res.json()
 }
 
 const getPredictedGender = async (name: string)=>{
-  const res = await fetch(`https://genderize.io/?name=${name}`);
+  const res = await fetch(`https://api.genderize.io/?name=${name}`);
   return res.json()
 }
 const getPredictedCountry
  = async (name: string)=>{
-  const res = await fetch(`https://nationalize.io/?name=${name}`);
+  const res = await fetch(`https://api.nationalize.io/?name=${name}`);
   return res.json()
 }
 
@@ -21,7 +23,7 @@ export default async function Page({params}:Params) {
   const ageData = getPredictedAge(params.name)
   const genderData = getPredictedGender(params.name)
   const countryData = getPredictedCountry(params.name)
-  const [age, gender,country] = await Promise.all([ageData,countryData,genderData]);
+  const [age, country,gender] = await Promise.all([ageData,countryData,genderData]);
     return (
      <div>
       <div>
